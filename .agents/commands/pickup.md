@@ -1,3 +1,9 @@
+---
+name: pickup
+description: Resume work from a previous handoff session
+disable-model-invocation: true
+---
+
 Resumes work from a previous handoff session which are stored in `.claude/handoffs`.
 
 The handoff folder might not exist if there are none.

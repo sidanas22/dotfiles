@@ -1,3 +1,9 @@
+---
+name: handoff
+description: Create a detailed handoff plan for continuing work in a new session
+disable-model-invocation: true
+---
+
 Creates a detailed handoff plan of the conversation for continuing the work in a new session.
 
 The user specified purpose:

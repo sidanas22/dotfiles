@@ -1,3 +1,9 @@
+---
+name: az-create-pr-from-diff
+description: Create an Azure DevOps PR from branch diff with auto-generated title and description
+disable-model-invocation: true
+---
+
 # Create PR from Branch Diff
 
 Automatically creates an Azure DevOps pull request with a title and description generated from the diff between source and target branches.

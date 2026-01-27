@@ -1,3 +1,9 @@
+---
+name: az-pr-complete
+description: Complete (merge) an Azure DevOps pull request
+disable-model-invocation: true
+---
+
 # Complete an Azure DevOps Pull Request
 
 **Usage:** `pr-complete <pr-id>`

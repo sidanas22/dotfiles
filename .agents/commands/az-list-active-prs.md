@@ -1,3 +1,9 @@
+---
+name: az-list-active-prs
+description: List active Azure DevOps pull requests
+disable-model-invocation: true
+---
+
 # List Active Azure DevOps Pull Requests
 
 **Usage:** `list-active-prs`
