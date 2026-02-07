@@ -45,6 +45,40 @@ Automatically creates an Azure DevOps pull request with a title and description 
 - Use `az repos pr update` to set properly formatted description with actual newlines
 - Return PR URL
 
+### 5. Finding Reviewers (Optional)
+If the user wants to add reviewers, use these commands to find available users:
+
+**Get Contributors:**
+```bash
+az devops security group list --project <project-name> --output table
+# Find the Contributors group descriptor, then:
+az devops security group membership list --id <contributors-descriptor> --output table
+```
+
+**Get Project Administrators:**
+```bash
+# Use the Project Administrators descriptor from the group list
+az devops security group membership list --id <project-admins-descriptor> --output table
+```
+
+**Get Team Members:**
+```bash
+az devops team list-member --team "<team-name>" --project <project-name> --output table
+```
+
+**Example workflow:**
+```bash
+# 1. First, list all security groups to get descriptors
+az devops security group list --project <project-name> --output table
+
+# 2. Then get members from specific groups
+# Contributors
+az devops security group membership list --id "CONTRIBUTORS_DESCRIPTOR_ID_HERE" --output table
+
+# Project Administrators
+az devops security group membership list --id "PROJECT_ADMINS_DESCRIPTOR_ID_HERE" --output table
+```
+
 ## Examples
 
 ### PR Creation Flow
@@ -70,3 +104,5 @@ Automatically creates an Azure DevOps pull request with a title and description 
 - Use proper markdown formatting with actual newlines in descriptions
 - Handle special characters in descriptions properly
 - Display the branches to confirm before any git operations
+- If user asks about reviewers, use the commands in section 5 to find available Contributors or Project Administrators
+- Note: Reviewers may have different roles (Contributors, Project Admins, Build Admins) - check appropriate groups
